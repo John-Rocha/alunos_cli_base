@@ -20,6 +20,6 @@ class ProductRepository {
       throw Exception('Produto não encontrado');
     }
 
-    return Course.fromMap(responseData.fisrt);
+    return Course.fromMap(responseData[0]);
   }
 }
