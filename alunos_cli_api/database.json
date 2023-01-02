@@ -122,6 +122,68 @@
                     "phone": "985755556"
                 }
             }
+        },
+        {
+            "id": 2,
+            "name": "John novo",
+            "age": 35,
+            "nameCourses": [
+                "Jornada GetX",
+                "Jornada Clean Code"
+            ],
+            "courses": [
+                {
+                    "id": 2,
+                    "name": "Jornada GetX",
+                    "isStudent": true
+                },
+                {
+                    "id": 3,
+                    "name": "Jornada Clean Code",
+                    "isStudent": true
+                }
+            ],
+            "address": {
+                "street": "Rua xyz",
+                "number": 123,
+                "zipCode": "88058300",
+                "city": {
+                    "id": 1,
+                    "name": "Floripa"
+                },
+                "phone": {
+                    "ddd": 48,
+                    "phone": "996107270"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "name": "John novo 2",
+            "age": 35,
+            "nameCourses": [
+                "Academia do flutter"
+            ],
+            "courses": [
+                {
+                    "id": 0,
+                    "name": "Academia do flutter",
+                    "isStudent": true
+                }
+            ],
+            "address": {
+                "street": "Rua xyz",
+                "number": 123,
+                "zipCode": "88058300",
+                "city": {
+                    "id": 1,
+                    "name": "Floripa"
+                },
+                "phone": {
+                    "ddd": 48,
+                    "phone": "996107270"
+                }
+            }
         }
     ]
 }
