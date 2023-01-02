@@ -46,4 +46,9 @@ class Student {
 
   factory Student.fromJson(String source) =>
       Student.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'Student(id: $id, name: $name, age: $age, nameCourses: $nameCourses, courses: $courses, address: $address)';
+  }
 }
