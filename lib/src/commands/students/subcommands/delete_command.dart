@@ -8,7 +8,7 @@ class DeleteCommand extends Command {
   final StudentRepository repository;
 
   DeleteCommand(this.repository) {
-    argParser.addOption('id', help: 'Delete by Id', abbr: 'i');
+    argParser.addOption('id', help: 'Student Id', abbr: 'i');
   }
 
   @override
@@ -19,26 +19,28 @@ class DeleteCommand extends Command {
 
   @override
   Future<void> run() async {
-    final id = argResults?['id'];
-    final studentId = int.parse(id);
-    final student = await repository.findById(studentId);
+    final id = int.tryParse(argResults?['id']);
 
     if (id == null) {
       print('Forneça um ID para deletar um aluno [ex: --id=1 ou -i 1]');
       return;
     }
+    print('Aguarde...');
+    final student = await repository.findById(id);
 
-    print('Deseja realmente deletar esse aluno? (S ou N)');
+    print('Deseja realmente deletar o aluno ${student.name}? (S ou N)');
     final confirmDelete = stdin.readLineSync();
-    if (student.id == studentId) {
-      if (confirmDelete?.toLowerCase() == 's') {
-        print('Deletando o aluno: ${student.name}...');
-        await repository.deleteById(studentId);
-      } else if (confirmDelete?.toLowerCase() == 'n') {
-        print('Obrigado!');
-      } else {
-        print('Opção inválida');
-      }
+
+    if (confirmDelete?.toLowerCase() == 's') {
+      await repository.deleteById(id);
+      print('---------------------------');
+      print('Aluno deletado com sucesso');
+    } else if (confirmDelete?.toLowerCase() == 'n') {
+      print('---------------------------');
+      print('Operação cancelada');
+      print('---------------------------');
+    } else {
+      print('Opção inválida');
     }
   }
 }
